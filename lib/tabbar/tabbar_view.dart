@@ -38,6 +38,7 @@ class _TbViewState extends State<TbView> with SingleTickerProviderStateMixin {
             setState(() {
               currentIndex = index;
             });
+            print(currentIndex);
           },
           controller: tabController,
           indicatorSize: TabBarIndicatorSize.tab,
@@ -83,20 +84,6 @@ class _TbViewState extends State<TbView> with SingleTickerProviderStateMixin {
           Center(child: Text("Komunitas")),
           Column(
             children: [
-              ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.googleusercontent.com%2Fytc%2FAGIKgqPAEy0ulaFGYtNDNO3wY0TVS0KBqpDCxlZ1Jcm3%3Ds900-c-k-c0x00ffffff-no-rj&f=1&nofb=1&ipt=c5e3837dc10cea975efd77b74dc600bfb6e5cd13ab99ec0b13cedf6b170fbe65&ipo=images"),
-                ),
-                title: Text(
-                  "Naswan Ganteng",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-                ),
-                subtitle: Text(
-                  "Halo bro, lagi dimana? nongkrong yuk..",
-                ),
-                trailing: Text("23:00"),
-              ),
               Divider(),
               ListTile(
                 leading: CircleAvatar(
@@ -187,14 +174,17 @@ class _TbViewState extends State<TbView> with SingleTickerProviderStateMixin {
               onPressed: () {},
               child: Icon(Icons.chat),
               backgroundColor: Colors.teal[600],
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(10),
-                ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
               ),
             )
-          : null,
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
+          : FloatingActionButton(
+              onPressed: () {},
+              child: Icon(Icons.camera_alt_outlined),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
     );
   }
 }
