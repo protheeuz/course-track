@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen>
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal[700],
-        title: const Text('WhatsApp'),
+        title: const Text('WhahahahahtsApp'),
         actions: [
           IconButton(
             icon: const Icon(Icons.camera_alt_outlined),
@@ -40,19 +40,10 @@ class _HomeScreenState extends State<HomeScreen>
           tabs: const [
             Tab(icon: Icon(Icons.groups)),
             Tab(text: 'Chats'),
-            Tab(text: 'Updates'),
-            Tab(text: 'Calls'),
+            Tab(text: 'Update'),
+            Tab(text: 'Tlp'),
           ],
         ),
-      ),
-      body: TabBarView(
-        controller: tabController,
-        children: [
-          Text('Groups'),
-          Text('Chats'),
-          Text('Updates'),
-          Text('Calls'),
-        ],
       ),
     );
   }
