@@ -1,55 +1,58 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ExtWgt());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ExtWgt extends StatelessWidget {
+  const ExtWgt({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
+    return Scaffold(
+      floatingActionButton: FloatingActionButton.small(onPressed: () {}),
       appBar: AppBar(
         title: const Text("Extract Widget"),
+        centerTitle: true,
       ),
-      body: const SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Column(
-          children: [
-            ColorsRectangle(text: "MERAH", warna: Colors.red),
-            ColorsRectangle(text: "KUNING", warna: Colors.yellow),
-            ColorsRectangle(text: "HIJAU", warna: Colors.green),
-            ColorsRectangle(text: "BIRU", warna: Colors.blue),
-            ColorsRectangle(text: "COKLAT", warna: Colors.brown),
-            ColorsRectangle(text: "UNGU", warna: Colors.purple),
-          ],
-        ),
+      body: ListView(
+        children: const [
+          ListColors(nama: "Merah", warna: Colors.red),
+          ListColors(nama: "Kuning", warna: Colors.yellow),
+          ListColors(nama: "Hijau", warna: Colors.green),
+          ListColors(nama: "Biru", warna: Colors.blue),
+          ListColors(nama: "Ungu", warna: Colors.purple),
+          ListColors(nama: "Coklat", warna: Colors.brown),
+          ListColors(nama: "Whatsapp", warna: Colors.teal),
+        ],
       ),
-    ));
+    );
   }
 }
 
-// extract widget  => reusable widget.
-class ColorsRectangle extends StatelessWidget {
-  const ColorsRectangle({
+// ini adalah contoh extract widget / reusable widget
+class ListColors extends StatelessWidget {
+  const ListColors({
     super.key,
-    required this.text,
+    required this.nama,
     required this.warna,
   });
 
-  final String text;
-  final Color warna;
+  final String nama;
+  final Color? warna;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
-      height: 200,
+      height: 150,
       color: warna,
       child: Center(
-        child: Text(text),
+        child: Text(
+          nama,
+          style: const TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
     );
   }
